@@ -12,6 +12,7 @@
  app.use(routes);
 
  //turn on connection to db and server
+ //sync({ force: true}) causes db connection must first sync to model defenitions and association, tables recreate when changes are made. Best to keep false to avoide having to reseed tables every time. 
  sequelize.sync({ force: false}).then(() =>{
      app.listen(PORT, () => console.log('Now listening'))
  });
